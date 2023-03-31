@@ -25,10 +25,10 @@ class NetflixHomeCarousel extends Component {
 		return (
 			<Carousel>
 				<Carousel.Item interval={3000}>
-					<Row className="overflow-x-scroll">
+					<Row className="overflow-x-hidden">
 						{this.state.movies.map((movie) => (
 							<Col md={2} key={movie.imdbID}>
-								<img src={movie.poster} alt={movie.title} />
+								<img src={movie.Poster} alt={movie.title} />
 							</Col>
 						))}
 					</Row>
