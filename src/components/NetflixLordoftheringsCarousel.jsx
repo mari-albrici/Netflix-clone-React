@@ -36,7 +36,7 @@ class NetflixLordoftheringsCarousel extends Component {
 							</Spinner>
 						)}
 						{this.state.movies.map((movie) => (
-							<Col md={2} className="overflow-x-scroll" key={movie.imdbID}>
+							<Col md={2} className="overflow" key={movie.imdbID}>
 								<img src={movie.Poster} alt={movie.title} />
 							</Col>
 						))}

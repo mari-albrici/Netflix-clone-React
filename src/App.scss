@@ -13,14 +13,8 @@ body {
 	}
 }
 
-main {
-	.profile {
-		max-width: 750px;
-	}
-}
-
-.secondary-navbar {
-	margin: -20px;
+.nav-link {
+	font-size: 1.2rem;
 }
 
 .carousel-item {
@@ -28,7 +22,7 @@ main {
 		transform: scale(1);
 
 		&:hover {
-			transform: scale(1.2);
+			transform: scale(1.1);
 			z-index: 1;
 		}
 	}
