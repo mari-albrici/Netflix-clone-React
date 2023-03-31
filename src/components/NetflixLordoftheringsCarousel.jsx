@@ -1,10 +1,12 @@
 import { Component } from 'react';
-import { Row, Col, Carousel, Spinner } from 'react-bootstrap';
+import { Row, Col, Carousel, Spinner, Alert } from 'react-bootstrap';
 
 class NetflixLordoftheringsCarousel extends Component {
 	state = {
 		isLoading: true,
 		movies: [],
+		error: false,
+		errorMsg: '',
 	};
 
 	async componentDidMount() {
@@ -17,11 +19,11 @@ class NetflixLordoftheringsCarousel extends Component {
 				this.setState({ isLoading: false });
 			} else {
 				console.log('error');
-				this.setState({ isLoading: false });
+				this.setState({ isLoading: false, error: true });
 			}
 		} catch (error) {
 			alert(error);
-			this.setState({ isLoading: false });
+			this.setState({ isLoading: false, error: true, errorMsg: error.message });
 		}
 	}
 
@@ -34,6 +36,26 @@ class NetflixLordoftheringsCarousel extends Component {
 							<Spinner animation="border" role="status" className="text-light">
 								<span className="visually-hidden">Loading...</span>
 							</Spinner>
+						)}
+						{this.state.error && !this.state.isLoading && (
+							<Alert variant="danger">{this.state.errorMsg ? this.state.errorMsg : 'Error: missing data'}</Alert>
+						)}
+						{this.state.movies.map((movie) => (
+							<Col md={2} className="overflow" key={movie.imdbID}>
+								<img src={movie.Poster} alt={movie.title} />
+							</Col>
+						))}
+					</Row>
+				</Carousel.Item>
+				<Carousel.Item interval={3000}>
+					<Row>
+						{this.state.isLoading && !this.state.error && (
+							<Spinner animation="border" role="status" className="text-light">
+								<span className="visually-hidden">Loading...</span>
+							</Spinner>
+						)}
+						{this.state.error && !this.state.isLoading && (
+							<Alert variant="danger">{this.state.errorMsg ? this.state.errorMsg : 'Error: missing data'}</Alert>
 						)}
 						{this.state.movies.map((movie) => (
 							<Col md={2} className="overflow" key={movie.imdbID}>

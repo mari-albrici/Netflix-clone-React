@@ -1,10 +1,12 @@
 import { Component } from 'react';
-import { Row, Col, Carousel, Spinner } from 'react-bootstrap';
+import { Row, Col, Carousel, Spinner, Alert } from 'react-bootstrap';
 
 class NetflixHomeCarousel extends Component {
 	state = {
 		isLoading: true,
 		movies: [],
+		error: false,
+		errorMsg: '',
 	};
 
 	async componentDidMount() {
@@ -17,11 +19,11 @@ class NetflixHomeCarousel extends Component {
 				this.setState({ isLoading: false });
 			} else {
 				console.log('error');
-				this.setState({ isLoading: false });
+				this.setState({ isLoading: false, error: true });
 			}
 		} catch (error) {
 			alert(error);
-			this.setState({ isLoading: false });
+			this.setState({ isLoading: false, error: true, errorMsg: error.message });
 		}
 	}
 
@@ -29,14 +31,34 @@ class NetflixHomeCarousel extends Component {
 		return (
 			<Carousel>
 				<Carousel.Item interval={3000}>
-					<Row className="d-flex justify-content-center">
+					<Row className="d-flex justify-content-center overflow">
 						{this.state.isLoading && !this.state.error && (
 							<Spinner animation="border" role="status" className="text-light">
 								<span className="visually-hidden">Loading...</span>
 							</Spinner>
 						)}
+						{this.state.error && !this.state.isLoading && (
+							<Alert variant="danger">{this.state.errorMsg ? this.state.errorMsg : 'Error: missing data'}</Alert>
+						)}
 						{this.state.movies.map((movie) => (
-							<Col md={2} className="overflow-x-scroll" key={movie.imdbID}>
+							<Col md={2} key={movie.imdbID}>
+								<img src={movie.Poster} alt={movie.title} />
+							</Col>
+						))}
+					</Row>
+				</Carousel.Item>
+				<Carousel.Item interval={3000}>
+					<Row className="d-flex justify-content-center overflow">
+						{this.state.isLoading && !this.state.error && (
+							<Spinner animation="border" role="status" className="text-light">
+								<span className="visually-hidden">Loading...</span>
+							</Spinner>
+						)}
+						{this.state.error && !this.state.isLoading && (
+							<Alert variant="danger">{this.state.errorMsg ? this.state.errorMsg : 'Error: missing data'}</Alert>
+						)}
+						{this.state.movies.map((movie) => (
+							<Col md={2} key={movie.imdbID}>
 								<img src={movie.Poster} alt={movie.title} />
 							</Col>
 						))}

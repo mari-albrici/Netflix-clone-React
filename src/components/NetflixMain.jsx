@@ -4,9 +4,7 @@ import NetflixLordoftheringsCarousel from './NetflixLordoftheringsCarousel';
 import NetflixStarwarsCarousel from './NetflixStarwarsCarousel';
 
 class NetflixMain extends Component {
-	state = {
-		movies: [],
-	};
+	state = {};
 	render() {
 		return (
 			<main className="container-fluid bg-primary px-4">
