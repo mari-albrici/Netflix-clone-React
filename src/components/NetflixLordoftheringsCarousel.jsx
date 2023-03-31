@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Row, Col, Carousel, Spinner } from 'react-bootstrap';
 
-class NetflixHomeCarousel extends Component {
+class NetflixLordoftheringsCarousel extends Component {
 	state = {
 		isLoading: true,
 		movies: [],
@@ -9,7 +9,7 @@ class NetflixHomeCarousel extends Component {
 
 	async componentDidMount() {
 		try {
-			const response = await fetch('http://www.omdbapi.com/?apikey=b8fd9fc&s=harry%20potter');
+			const response = await fetch('http://www.omdbapi.com/?apikey=b8fd9fc&s=lord%20of%20the%20rings');
 
 			if (response.ok) {
 				const data = await response.json();
@@ -29,7 +29,7 @@ class NetflixHomeCarousel extends Component {
 		return (
 			<Carousel>
 				<Carousel.Item interval={3000}>
-					<Row className="d-flex justify-content-center">
+					<Row>
 						{this.state.isLoading && !this.state.error && (
 							<Spinner animation="border" role="status" className="text-light">
 								<span className="visually-hidden">Loading...</span>
@@ -47,4 +47,4 @@ class NetflixHomeCarousel extends Component {
 	}
 }
 
-export default NetflixHomeCarousel;
+export default NetflixLordoftheringsCarousel;

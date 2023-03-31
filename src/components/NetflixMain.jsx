@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import NetflixHomeCarousel from './NetflixHomeCarousel';
+import NetflixLordoftheringsCarousel from './NetflixLordoftheringsCarousel';
+import NetflixStarwarsCarousel from './NetflixStarwarsCarousel';
 
 class NetflixMain extends Component {
 	state = {
@@ -12,16 +14,14 @@ class NetflixMain extends Component {
 					<h3 className="fs-2 text-info pb-3">Harry Potter</h3>
 					<NetflixHomeCarousel />
 				</div>
-
-				{/* <div class="container-fluid py-">
-					<h3 class="fs-2 text-info pb-3">Harry Potter</h3>
-					<NetflixHomeCarousel />
+				<div className="container-fluid py-4">
+					<h3 className="fs-2 text-info pb-3">Star Wars</h3>
+					<NetflixStarwarsCarousel />
 				</div>
-
-				<div class="container-fluid py-">
-					<h3 class="fs-2 text-info pb-3">Lord of the Rings</h3>
-					<NetflixHomeCarousel />
-				</div> */}
+				<div className="container-fluid py-4">
+					<h3 className="fs-2 text-info pb-3">Lord of the Rings</h3>
+					<NetflixLordoftheringsCarousel />
+				</div>
 			</main>
 		);
 	}
