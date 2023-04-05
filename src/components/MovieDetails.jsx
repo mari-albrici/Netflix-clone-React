@@ -1,5 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Card, ListGroup, Badge } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -36,7 +35,7 @@ const MovieDetails = () => {
 		}
 	};
 
-	const fetchComments = async (props) => {
+	const fetchComments = async () => {
 		try {
 			const response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + params.movieID, {
 				headers: {
@@ -47,6 +46,7 @@ const MovieDetails = () => {
 			if (response.ok) {
 				const data = await response.json();
 				setMovieComments(data);
+				console.log(movieComments);
 			} else {
 				console.log('errore nel recupero dei dati');
 			}
@@ -57,11 +57,21 @@ const MovieDetails = () => {
 
 	return (
 		<Card>
-			<Card.Img variant="top" src={movieDetails.Poster} />
+			<Card.Img variant="top" src={movieDetails.Poster} className="img-fluid" />
 			<Card.Body>
 				<Card.Title>{movieDetails.Title}</Card.Title>
 				<Card.Text>{movieDetails.Plot}</Card.Text>
-				<Button variant="primary">See comments</Button>
+				<Card.Title>COMMENTS:</Card.Title>
+				{movieComments.map((comment) => (
+					<ListGroup variant="flush">
+						<ListGroup.Item>
+							<p className="text-muted">{comment.author}</p>
+						</ListGroup.Item>
+						<ListGroup.Item className="d-flex align-items-center">
+							<Badge className="bg-dark">{comment.rate}</Badge> <p>{comment.comment}</p>
+						</ListGroup.Item>
+					</ListGroup>
+				))}
 			</Card.Body>
 		</Card>
 	);
