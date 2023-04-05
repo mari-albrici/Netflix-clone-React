@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import NetflixFooter from './components/NetflixFooter';
-// import NetflixMain from './components/NetflixMain';
+import NetflixMain from './components/NetflixMain';
 import NetflixNavbar from './components/NetflixNavbar';
-import SettingsPage from './SettingsPage';
+// import SettingsPage from './SettingsPage';
 // import ProfilePage from './components/ProfilePage';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
 		<div className="App">
 			<NetflixNavbar />
 			{/* <ProfilePage /> */}
-			<SettingsPage />
-			{/* <NetflixMain /> */}
+			{/* <SettingsPage /> */}
+			<NetflixMain />
 			<NetflixFooter />
 		</div>
 	);

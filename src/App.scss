@@ -17,13 +17,12 @@ body {
 	font-size: 1.2rem;
 }
 
-.carousel-item {
-	img {
-		transform: scale(1);
-
-		&:hover {
-			transform: scale(1.1);
-			z-index: 1;
-		}
+#dropdownNavbar {
+	.dropdownItem:hover {
+		color: $light;
 	}
+}
+
+.creatorLogo {
+	width: 100px;
 }

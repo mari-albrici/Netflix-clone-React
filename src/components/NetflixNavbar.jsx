@@ -37,7 +37,7 @@ const NetflixNavbar = () => {
 								<i className="bi bi-bell fs-4"></i>
 							</Button>
 						</div>
-						<Dropdown className="btn-group dropdown">
+						<Dropdown className="btn-group dropdown" id="dropdownNavbar">
 							<Dropdown.Toggle
 								type="button"
 								className="btn btn-secondary dropdown-toggle bg-dark border-dark"
@@ -47,20 +47,20 @@ const NetflixNavbar = () => {
 								<img src={avatar} width="30" height="30" alt="avatar logo" />
 							</Dropdown.Toggle>
 							<Dropdown.Menu className="dropdown-menu-end bg-dark">
-								<Dropdown.Item className="text-light" eventKey="4.1">
+								<Dropdown.Item className="text-light dropdownItem" eventKey="4.1">
 									Gestisci i profili
 								</Dropdown.Item>
-								<Dropdown.Item className="text-light" eventKey="4.2">
+								<Dropdown.Item className="text-light dropdownItem" eventKey="4.2">
 									Traferisci profilo
 								</Dropdown.Item>
-								<Dropdown.Item className="text-light" eventKey="4.3">
+								<Dropdown.Item className="text-light dropdownItem" eventKey="4.3">
 									Account
 								</Dropdown.Item>
-								<Dropdown.Item className="text-light" eventKey="4.3">
+								<Dropdown.Item className="text-light dropdownItem" eventKey="4.3">
 									Centro Assistenza
 								</Dropdown.Item>
 								<Dropdown.Divider />
-								<Dropdown.Item className="text-light" eventKey="4.4">
+								<Dropdown.Item className="text-light dropdownItem" eventKey="4.4">
 									Esci da Netflix
 								</Dropdown.Item>
 							</Dropdown.Menu>

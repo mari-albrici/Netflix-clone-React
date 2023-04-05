@@ -1,4 +1,5 @@
 import { Row, Col, Container } from 'react-bootstrap';
+import creatorLogo from '../assets/creatorLogo.png';
 
 const NetflixFooter = () => {
 	return (
@@ -46,9 +47,12 @@ const NetflixFooter = () => {
 						<button className="btn btn-dark bg-primary text-warning rounded-0">Service Code</button>
 					</Col>
 				</Row>
-				<Row className="py-5">
+				<Row className="py-5 d-flex align-items-center justify-content-between">
 					<Col className="text-warning">
 						<p>&copy; 1997-2019 Netflix, Inc. i-0d00fcda2fdfc0de</p>
+					</Col>
+					<Col>
+						<img src={creatorLogo} alt="creator logo" className="img-fluid creatorLogo" />
 					</Col>
 				</Row>
 			</Container>
