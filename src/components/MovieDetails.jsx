@@ -56,21 +56,23 @@ const MovieDetails = () => {
 	};
 
 	return (
-		<Card>
+		<Card key={movieDetails.imbdId}>
 			<Card.Img variant="top" src={movieDetails.Poster} className="img-fluid" />
 			<Card.Body>
 				<Card.Title>{movieDetails.Title}</Card.Title>
 				<Card.Text>{movieDetails.Plot}</Card.Text>
 				<Card.Title>COMMENTS:</Card.Title>
 				{movieComments.map((comment) => (
-					<ListGroup variant="flush">
-						<ListGroup.Item>
-							<p className="text-muted">{comment.author}</p>
-						</ListGroup.Item>
-						<ListGroup.Item className="d-flex align-items-center">
-							<Badge className="bg-dark">{comment.rate}</Badge> <p>{comment.comment}</p>
-						</ListGroup.Item>
-					</ListGroup>
+					<Card>
+						<ListGroup variant="flush" className="d-flex">
+							<ListGroup.Item>
+								<p className="text-muted">{comment.author}</p>
+							</ListGroup.Item>
+							<ListGroup.Item className="d-flex align-items-center">
+								<Badge className="bg-dark">{comment.rate}</Badge> <p>{comment.comment}</p>
+							</ListGroup.Item>
+						</ListGroup>
+					</Card>
 				))}
 			</Card.Body>
 		</Card>
