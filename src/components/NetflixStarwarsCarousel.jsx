@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Row, Col, Carousel, Spinner, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class NetflixStarwarsCarousel extends Component {
 	state = {
@@ -42,7 +43,9 @@ class NetflixStarwarsCarousel extends Component {
 						)}
 						{this.state.movies.map((movie) => (
 							<Col md={2} className="overflow-x-scroll" key={movie.imdbID}>
-								<img src={movie.Poster} alt={movie.title} />
+								<Link to={'/movie-details/' + movie.imdbID}>
+									<img src={movie.Poster} alt={movie.title} />
+								</Link>
 							</Col>
 						))}
 					</Row>
@@ -59,7 +62,9 @@ class NetflixStarwarsCarousel extends Component {
 						)}
 						{this.state.movies.map((movie) => (
 							<Col md={2} className="overflow-x-scroll" key={movie.imdbID}>
-								<img src={movie.Poster} alt={movie.title} />
+								<Link to={'/movie-details/' + movie.imdbID}>
+									<img src={movie.Poster} alt={movie.title} />
+								</Link>
 							</Col>
 						))}
 					</Row>

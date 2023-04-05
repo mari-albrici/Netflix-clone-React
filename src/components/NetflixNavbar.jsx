@@ -1,28 +1,31 @@
 import { Navbar, Nav, Button, Dropdown, Container } from 'react-bootstrap';
 import logo from '../assets/netflix_logo.png';
 import avatar from '../assets/avatar.png';
+import { Link, useLocation } from 'react-router-dom';
 
 const NetflixNavbar = () => {
+	const location = useLocation();
+
 	return (
 		<Navbar expand="lg" className="bg-primary">
 			<Container fluid className="text-light">
-				<Nav.Link className="navbar-brand" href="#">
+				<Link className={`nav-link ${location.pathname === '/' ? 'active fw-bold text-muted' : ''}`} to="/">
 					<img src={logo} alt="Netflix" height="50px" />
-				</Nav.Link>
+				</Link>
 				<Navbar.Toggle aria-controls="basic-navbar-nav " />
 				<Navbar.Collapse id="basic-navbar-nav" className="d-flex justify-content-between">
 					<Nav className="navbar-nav">
-						<Nav.Link className="nav-link text-light" aria-current="page" href="#">
+						<Link className={`nav-link ${location.pathname === '/' ? 'active fw-bold text-muted' : 'text-light'}`} to="/" aria-current="page">
 							Home
-						</Nav.Link>
-						<Nav.Link className="nav-link text-light" href="#">
+						</Link>
+						<Link className={`nav-link ${location.pathname === '/tv-shows' ? 'active fw-bold text-muted' : 'text-light'}`} to="/tv-shows">
 							TV Series
-						</Nav.Link>
-						<Nav.Link className="nav-link text-light" href="#">
+						</Link>
+						<Link className="nav-link text-light" href="#">
 							Movies
-						</Nav.Link>
-						<Nav.Link className="nav-link text-light">Recently Added</Nav.Link>
-						<Nav.Link className="nav-link text-light">My list</Nav.Link>
+						</Link>
+						<Link className="nav-link text-light">Recently Added</Link>
+						<Link className="nav-link text-light">My list</Link>
 					</Nav>
 
 					<div className="d-flex align-items-center text-light">
@@ -48,7 +51,9 @@ const NetflixNavbar = () => {
 							</Dropdown.Toggle>
 							<Dropdown.Menu className="dropdown-menu-end bg-dark">
 								<Dropdown.Item className="text-light dropdownItem" eventKey="4.1">
-									Gestisci i profili
+									<Link className={`nav-link ${location.pathname === '/profile' ? 'active fw-bold text-muted' : 'text-light'}`} to="/profile">
+										Gestisci i profili
+									</Link>
 								</Dropdown.Item>
 								<Dropdown.Item className="text-light dropdownItem" eventKey="4.2">
 									Traferisci profilo
